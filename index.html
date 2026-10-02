@@ -1,1 +1,264 @@
-# Realisation
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLDE - Acheter ou Vendre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">SOLDE</div>
+
+        <nav>
+            <a href="#home">Accueil</a>
+            <a href="#products">Articles</a>
+            <a href="#sell">Vendre</a>
+            <a href="#cart">Panier 🛒</a>
+        </nav>
+    </header>
+
+    <!-- PREMIERE PAGE -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+            <h1>Bienvenue sur <span>SOLDE</span></h1>
+
+            <p>
+                Achetez ou vendez vos articles à petit prix.
+                Donnez une deuxième chance aux produits qui restent en stock.
+            </p>
+
+            <div class="choice-buttons">
+                <a href="#products" class="btn buy-btn">
+                    🛍️ Je veux acheter
+                </a>
+
+                <a href="#sell" class="btn sell-btn">
+                    💰 Je veux vendre
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ARTICLES -->
+    <section id="products" class="section">
+
+        <h2>Articles disponibles</h2>
+
+        <p class="section-description">
+            Découvrez des articles proposés à petit prix.
+        </p>
+
+        <div id="product-list" class="products-container">
+
+            <!-- Produit 1 -->
+            <div class="product-card">
+
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80">
+
+                <div class="product-info">
+
+                    <h3>Chaussures Nike</h3>
+
+                    <p class="description">
+                        Chaussures confortables et modernes,
+                        parfaites pour une utilisation quotidienne.
+                    </p>
+
+                    <p class="price">250 DH</p>
+
+                    <div class="quantity">
+                        <label>Quantité :</label>
+                        <input type="number" id="quantity-1" value="1" min="1">
+                    </div>
+
+                    <button onclick="addToCart(1)" class="cart-btn">
+                        Ajouter au panier
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Produit 2 -->
+            <div class="product-card">
+
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80">
+
+                <div class="product-info">
+
+                    <h3>Montre classique</h3>
+
+                    <p class="description">
+                        Montre élégante et simple.
+                        Un bon choix pour un style quotidien.
+                    </p>
+
+                    <p class="price">150 DH</p>
+
+                    <div class="quantity">
+                        <label>Quantité :</label>
+                        <input type="number" id="quantity-2" value="1" min="1">
+                    </div>
+
+                    <button onclick="addToCart(2)" class="cart-btn">
+                        Ajouter au panier
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Produit 3 -->
+            <div class="product-card">
+
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=600&q=80">
+
+                <div class="product-info">
+
+                    <h3>T-shirt</h3>
+
+                    <p class="description">
+                        T-shirt confortable disponible
+                        à un prix réduit.
+                    </p>
+
+                    <p class="price">80 DH</p>
+
+                    <div class="quantity">
+                        <label>Quantité :</label>
+                        <input type="number" id="quantity-3" value="1" min="1">
+                    </div>
+
+                    <button onclick="addToCart(3)" class="cart-btn">
+                        Ajouter au panier
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VENDRE -->
+    <section id="sell" class="sell-section">
+
+        <h2>Vous voulez vendre un article ?</h2>
+
+        <p>
+            Vous avez un stock que vous voulez vendre à petit prix ?
+            Ajoutez votre article sur SOLDE.
+        </p>
+
+        <form id="product-form">
+
+            <input
+                type="text"
+                id="productName"
+                placeholder="Nom de l'article"
+                required
+            >
+
+            <input
+                type="number"
+                id="productPrice"
+                placeholder="Prix en DH"
+                min="1"
+                required
+            >
+
+            <input
+                type="number"
+                id="productQuantity"
+                placeholder="Quantité disponible"
+                min="1"
+                required
+            >
+
+            <input
+                type="text"
+                id="productImage"
+                placeholder="URL de l'image"
+                required
+            >
+
+            <textarea
+                id="productDescription"
+                placeholder="Description de l'article"
+                required
+            ></textarea>
+
+            <input
+                type="tel"
+                id="sellerPhone"
+                placeholder="Téléphone du vendeur"
+                required
+            >
+
+            <button type="submit" class="add-product-btn">
+                + Ajouter mon article
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PANIER -->
+    <section id="cart" class="cart-section">
+
+        <h2>🛒 Mon panier</h2>
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Votre panier est vide.
+            </p>
+
+        </div>
+
+        <div class="cart-total">
+            Total : <span id="cart-total">0</span> DH
+        </div>
+
+        <button onclick="contactSellers()" class="order-btn">
+            📞 Contacter le vendeur
+        </button>
+
+        <p class="delivery-info">
+            ⚠️ SOLDE ne fait pas la livraison.
+            Après avoir choisi vos articles, contactez directement le vendeur
+            pour organiser la récupération de votre commande.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>SOLDE</h3>
+
+        <p>
+            Acheter moins cher. Vendre facilement.
+        </p>
+
+        <p>
+            © 2026 SOLDE - Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
