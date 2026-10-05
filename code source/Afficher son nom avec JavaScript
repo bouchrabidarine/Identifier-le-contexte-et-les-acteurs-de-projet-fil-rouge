@@ -1,0 +1,6 @@
+console.log("Je m'appelle Ali.");
+
+
+console.log("Nom : Madani");
+console.log("Prénom : Ali");
+console.log("Formation : Développement Web");
