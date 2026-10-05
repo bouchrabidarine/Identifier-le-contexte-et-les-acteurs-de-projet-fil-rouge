@@ -1,0 +1,7 @@
+let nom = "Madani";
+let prenom = "Ali";
+let formation = "Développement Web";
+
+console.log(nom);
+console.log(prenom);
+console.log(formation);
